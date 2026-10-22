@@ -1,0 +1,19 @@
+// Grafo de la MT del problema 1: L = { a^n b^m | m >= n, n > 0 }
+// Etiquetas: leído / escrito, movimiento
+digraph MT_anbm {
+  rankdir=LR;
+  node [shape=circle, fontname="Helvetica"];
+  edge [fontname="Helvetica", fontsize=11];
+  start [shape=point];
+  q5 [shape=doublecircle];
+  start -> q0;
+  q0 -> q1 [label="a / X, R"];
+  q1 -> q1 [label="a / a, R\nY / Y, R"];
+  q1 -> q2 [label="b / Y, L"];
+  q2 -> q2 [label="a / a, L\nY / Y, L"];
+  q2 -> q3 [label="X / X, R"];
+  q3 -> q1 [label="a / X, R"];
+  q3 -> q4 [label="Y / Y, R"];
+  q4 -> q4 [label="Y / Y, R\nb / b, R"];
+  q4 -> q5 [label=". / ., S"];
+}

@@ -1,0 +1,29 @@
+# Problema 1: MT que reconoce L = { a^n b^m | m >= n, n > 0 }
+# En cada pasada marca la 'a' más a la izquierda sin marcar (X) y la 'b' más
+# a la izquierda sin marcar (Y). Cuando no quedan 'a' comprueba que el resto
+# de la cadena solo tiene Y y b.
+#   q0: la cadena debe empezar por 'a'
+#   q1: busca a la derecha la primera 'b' sin marcar
+#   q2: vuelve a la izquierda hasta la última X
+#   q3: marca la siguiente 'a' o, si ya no quedan, pasa a comprobar el final
+#   q4: comprueba que solo quedan Y y b hasta el blanco
+#   q5: aceptación
+q0 q1 q2 q3 q4 q5
+a b
+a b X Y .
+q0
+.
+q5
+1
+q0 a q1 X R
+q1 a q1 a R
+q1 Y q1 Y R
+q1 b q2 Y L
+q2 a q2 a L
+q2 Y q2 Y L
+q2 X q3 X R
+q3 a q1 X R
+q3 Y q4 Y R
+q4 Y q4 Y R
+q4 b q4 b R
+q4 . q5 . S

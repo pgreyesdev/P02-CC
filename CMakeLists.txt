@@ -14,4 +14,8 @@ add_executable(tm ${SOURCES})
 # Las cabeceras están en include/
 target_include_directories(tm PRIVATE ${CMAKE_SOURCE_DIR}/include)
 
-target_compile_options(tm PRIVATE -Wall -Wextra -pedantic)
+if(MSVC)
+  target_compile_options(tm PRIVATE /W4)
+else()
+  target_compile_options(tm PRIVATE -Wall -Wextra -pedantic)
+endif()

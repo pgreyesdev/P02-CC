@@ -1,0 +1,27 @@
+// Grafo de la MT del problema 2 (3 cintas)
+// Etiquetas: (r1, r2, r3) / (w1 m1, w2 m2, w3 m3); y representa 1 o .
+digraph MT_contar {
+  rankdir=TB;
+  nodesep=0.8;
+  node [shape=circle, fontname="Helvetica"];
+  edge [fontname="Helvetica", fontsize=10];
+  start [shape=point];
+  q9 [shape=doublecircle];
+  start -> q0;
+  q0 -> q0 [label="(a, ., .) / (. R, . S, 1 R)\n(b, ., .) / (. R, 1 R, . S)"];
+  q0 -> q1 [label="(., ., .) / (. S, . L, . L)"];
+  q1 -> q1 [label="(., 1, y) / (. S, 1 L, y S)"];
+  q1 -> q2 [label="(., ., y) / (. S, . R, y S)"];
+  q2 -> q2 [label="(., y, 1) / (. S, y S, 1 L)"];
+  q2 -> q3 [label="(., y, .) / (. S, y S, . R)"];
+  q3 -> q4 [label="(., 1, y) / (1 R, . R, y S)\n(., ., y) / (0 R, . S, y S)"];
+  q4 -> q4 [label="(., 1, y) / (1 R, . R, y S)"];
+  q4 -> q5 [label="(., ., y) / (. R, . S, y S)"];
+  q5 -> q6 [label="(., ., 1) / (1 R, . S, . R)\n(., ., .) / (0 R, . S, . S)"];
+  q6 -> q6 [label="(., ., 1) / (1 R, . S, . R)"];
+  q6 -> q7 [label="(., ., .) / (. L, . S, . S)"];
+  q7 -> q7 [label="(1, ., .) / (1 L, . S, . S)\n(0, ., .) / (0 L, . S, . S)"];
+  q7 -> q8 [label="(., ., .) / (. L, . S, . S)"];
+  q8 -> q8 [label="(1, ., .) / (1 L, . S, . S)\n(0, ., .) / (0 L, . S, . S)"];
+  q8 -> q9 [label="(., ., .) / (. R, . S, . S)"];
+}
